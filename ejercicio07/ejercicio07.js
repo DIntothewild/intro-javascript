@@ -5,9 +5,33 @@
  *  al cliente. Debes tener en cuenta que el cliente podria entregar
  *  una cantidad de dinero insuficiente.
  */
+let readline = require("readline-sync");
+let numero = Number(readline.question("Introduce la cantidad de dinero que entregas"));
+let costeprod = Number(readline.question("Introduce el coste del producto"));
+let cambio = numero - costeprod;
 
-function cambioCliente() {
- //Escribe tu codigo aqui
+function cambioCliente(){
+
+//Escribe tu codigo aqui
+ 
+    if (isNaN(numero) || isNaN(costeprod)){
+        return "Has introducido uno o varios caracteres no validos";
+    
+    }
+    if (cambio == 0){
+        return "el precio pagado es exacto";
+    } else if (cambio > 0){
+
+    
+        return `el cambio correspondiente es ${cambio}`;
+    
+    } else {
+
+        return "No ha agragado la cantida suficiente para comprar el producto";
+    }
 }
+
+ resultado = cambioCliente();
+ console.log(resultado);
 
 module.exports = { cambioCliente };
